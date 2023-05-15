@@ -116,7 +116,7 @@ async def next_page(bot, query):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"[{get_size(file.file_size)}]{file.file_name}", callback_data=f'{pre}#{file.file_id}',
+                    text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'{pre}#{file.file_id}',
                 )
             ]
             for file in files
@@ -731,7 +731,7 @@ async def auto_filter(client, msg, spoll=False):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"[{get_size(file.file_size)}]{file.file_name}", url=await get_shortlink(message.chat.id, f'https://t.me/{temp.U_NAME}?start={pre}_{message.chat.id}_{file.file_id}')
+                    text=f"[{get_size(file.file_size)}] {file.file_name}", url=await get_shortlink(message.chat.id, f'https://t.me/{temp.U_NAME}?start={pre}_{message.chat.id}_{file.file_id}')
                 )
             ]
             for file in files
@@ -743,7 +743,7 @@ async def auto_filter(client, msg, spoll=False):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"[{get_size(file.file_size)}]{file.file_name}", callback_data=f'{pre}#{file.file_id}',
+                    text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'{pre}#{file.file_id}',
                 )
             ]
             for file in files
@@ -804,7 +804,7 @@ async def auto_filter(client, msg, spoll=False):
             **locals()
         )
     else:
-        cap = f"Results For : <code>{search}</code>\n\n🗣 Requested by: {message.from_user.mention}\n©️ Powered by: <b>{message.chat.title}</b>"
+        cap = f"Found Results For : <code>{search}</code>\n\n🗣 Requested by: {message.from_user.mention}\n©️ Powered by: <b>{message.chat.title}</b>"
     if imdb and imdb.get('poster'):
         try:
             if settings["auto_delete"]:

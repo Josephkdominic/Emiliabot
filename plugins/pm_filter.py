@@ -104,7 +104,7 @@ async def next_page(bot, query):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"✨ {get_size(file.file_size)} ⚡️ {file.file_name}", url=await get_shortlink(query.message.chat.id, f'https://t.me/{temp.U_NAME}?start={pre}_{query.message.chat.id}_{file.file_id}')
+                    text=f"[{get_size(file.file_size)}]{file.file_name}", url=await get_shortlink(query.message.chat.id, f'https://t.me/{temp.U_NAME}?start={pre}_{query.message.chat.id}_{file.file_id}')
                 )
             ]
             for file in files
@@ -116,7 +116,7 @@ async def next_page(bot, query):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"✨ {get_size(file.file_size)} ⚡️ {file.file_name}", callback_data=f'{pre}#{file.file_id}',
+                    text=f"[{get_size(file.file_size)}]{file.file_name}", callback_data=f'{pre}#{file.file_id}',
                 )
             ]
             for file in files
@@ -345,8 +345,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
 
         btn = [[
-            InlineKeyboardButton('⚡️ Updates Channel ⚡️', url=UPDATES_LINK),
-            InlineKeyboardButton('🔥 Support Group 🔥', url=SUPPORT_LINK)
+            InlineKeyboardButton('Join', url=UPDATES_LINK),
+            InlineKeyboardButton('Join', url=SUPPORT_LINK)
         ]]
         await query.message.delete()
         await client.send_cached_media(
@@ -384,8 +384,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ],[
             InlineKeyboardButton('🔎 Inline Search 🔍', switch_inline_query_current_chat='')
         ],[
-            InlineKeyboardButton('👑 My Owner 👑', callback_data='my_owner'),
-            InlineKeyboardButton('ℹ️ My About ℹ️', callback_data='my_about')
+            InlineKeyboardButton(' My Owner ', callback_data='my_owner'),
+            InlineKeyboardButton(' About ', callback_data='my_about')
         ],[
             InlineKeyboardButton('❌ Close ❌', callback_data='close_data')
         ]]
@@ -398,7 +398,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "my_about":
         buttons = [[
             InlineKeyboardButton('🏠 Home 🏠', callback_data='start'),
-            InlineKeyboardButton('Report Bugs and Feedback', url=SUPPORT_LINK)
+            InlineKeyboardButton('Feedback', url=SUPPORT_LINK)
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -409,7 +409,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "my_owner":
         buttons = [[
             InlineKeyboardButton('🏠 Home 🏠', callback_data='start'),
-            InlineKeyboardButton('Contact', url='https://t.me/Hansaka_Anuhas')
+            InlineKeyboardButton('Support', url='https://t.me/MovieStore_TG') 
+
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(

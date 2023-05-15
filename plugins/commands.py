@@ -23,8 +23,8 @@ logger = logging.getLogger(__name__)
 async def start(client, message):
     if message.chat.type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
         btn = [[
-            InlineKeyboardButton('⚡️ Updates Channel ⚡️', url=UPDATES_LINK),
-            InlineKeyboardButton('🔥 Support Group 🔥', url=SUPPORT_LINK)
+            InlineKeyboardButton('Cᴀɴɴᴇʟ', url=UPDATES_LINK),
+            InlineKeyboardButton('Gʀᴏᴜᴘ', url=SUPPORT_LINK)
         ]]
         s = await message.reply_sticker(sticker=random.choice(STICKERS), reply_markup=InlineKeyboardMarkup(btn))
         await asyncio.sleep(30)
@@ -107,8 +107,8 @@ async def start(client, message):
             )
             
             btn = [[
-                InlineKeyboardButton('⚡️ Updates Channel ⚡️', url=UPDATES_LINK),
-                InlineKeyboardButton('🔥 Support Group 🔥', url=SUPPORT_LINK)
+                InlineKeyboardButton('Cʜᴀɴɴᴇʟ', url=UPDATES_LINK),
+                InlineKeyboardButton('Gʀᴏᴜᴘ', url=SUPPORT_LINK)
             ]]
             await client.send_cached_media(
                 chat_id=message.from_user.id,
@@ -133,8 +133,8 @@ async def start(client, message):
     )
     
     btn = [[
-        InlineKeyboardButton('⚡️ Updates Channel ⚡️', url=UPDATES_LINK),
-        InlineKeyboardButton('🔥 Support Group 🔥', url=SUPPORT_LINK)
+        InlineKeyboardButton('Cʜᴀɴɴᴇʟ', url=UPDATES_LINK),
+        InlineKeyboardButton('Gʀᴏᴜᴘ', url=SUPPORT_LINK)
     ]]
     await client.send_cached_media(
         chat_id=message.from_user.id,

@@ -110,7 +110,7 @@ async def next_page(bot, query):
             for file in files
         ]
         btn.insert(0,
-            [InlineKeyboardButton("🎈 Send All 🎈", url=await get_shortlink(query.message.chat.id, f'https://t.me/{temp.U_NAME}?start=all_{query.message.chat.id}_{pre}_{key}'))]
+            [InlineKeyboardButton("📥 Send All 📥", url=await get_shortlink(query.message.chat.id, f'https://t.me/{temp.U_NAME}?start=all_{query.message.chat.id}_{pre}_{key}'))]
         )
     else:
         btn = [
@@ -122,7 +122,7 @@ async def next_page(bot, query):
             for file in files
         ]
         btn.insert(0,
-            [InlineKeyboardButton("🎈 Send All 🎈", callback_data=f"send_all#{pre}#{key}")]
+            [InlineKeyboardButton("📥 Send All 📥", callback_data=f"send_all#{pre}#{key}")]
         )
 
     if 0 < offset <= 10:
@@ -737,7 +737,7 @@ async def auto_filter(client, msg, spoll=False):
             for file in files
         ]
         btn.insert(0,
-            [InlineKeyboardButton("🎈 Send All 🎈", url=await get_shortlink(message.chat.id, f'https://t.me/{temp.U_NAME}?start=all_{message.chat.id}_{pre}_{key}'))]
+            [InlineKeyboardButton("📥 Send All 📥", url=await get_shortlink(message.chat.id, f'https://t.me/{temp.U_NAME}?start=all_{message.chat.id}_{pre}_{key}'))]
         )
     else:
         btn = [
@@ -749,7 +749,7 @@ async def auto_filter(client, msg, spoll=False):
             for file in files
         ]
         btn.insert(0,
-            [InlineKeyboardButton("🎈 Send All 🎈", callback_data=f"send_all#{pre}#{key}")]
+            [InlineKeyboardButton("📥 Send All 📥", callback_data=f"send_all#{pre}#{key}")]
         )
 
     if offset != "":
@@ -804,7 +804,7 @@ async def auto_filter(client, msg, spoll=False):
             **locals()
         )
     else:
-        cap = f"Found Results For : <code>{search}</code>\n\n🗣 Requested by: {message.from_user.mention}\n©️ Powered by: <b>{message.chat.title}</b>"
+        cap = f"📁 Found ✨  Files For Your Query : <code>{search}</code>👇\n\n🗣 Requested by: {message.from_user.mention}\n©️ Powered by: <b>{message.chat.title}</b>"
     if imdb and imdb.get('poster'):
         try:
             if settings["auto_delete"]:

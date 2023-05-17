@@ -577,7 +577,7 @@ async def delete(bot, message):
     ]]
     await msg.edit('Choose do you want to delete file type?', reply_markup=InlineKeyboardMarkup(btn))
     
-@Client.on_message(filters.command('deletef') & filters.user(ADMINS))
+ @Client.on_message(filters.command('deletef') & filters.user(ADMINS))
 async def deletef(bot, message):
     """Delete file from database"""
     reply = message.reply_to_message
@@ -594,8 +594,9 @@ async def deletef(bot, message):
     else:
         await msg.edit('This is not supported file format')
         return
+    
+    file_id, file_ref = unpack_new_file_id(media.file_id)
 
-        file_id, file_ref = unpack_new_file_id(media.file_id)
     result = await Media.collection.delete_one({
         '_id': file_id,
     })
@@ -620,9 +621,8 @@ async def deletef(bot, message):
             })
             if result.deleted_count:
                 await msg.edit('File is successfully deleted from database')
-           else:             
+            else:
                 await msg.edit('File not found in database')
-
 
 @Client.on_message(filters.command('delete_all') & filters.user(ADMINS))
 async def delete_all_index(bot, message):

@@ -578,7 +578,7 @@ async def delete(bot, message):
     await msg.edit('Choose do you want to delete file type?', reply_markup=InlineKeyboardMarkup(btn))
     
  @Client.on_message(filters.command('deletef') & filters.user(ADMINS))
-async def delete(bot, message):
+async def deletef(bot, message):
     """Delete file from database"""
     reply = message.reply_to_message
     if reply and reply.media:

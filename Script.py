@@ -9,8 +9,9 @@ class script(object):
 ★ Language: <a href=https://www.python.org>Python</a>
 ★ Library: <a href=https://pyrogram.org>Pyrogram</a>"""
 
-    MY_OWNER_TXT = """★ Made by: moviestore
-★ Username: @MovieStore_TG"""
+    MY_OWNER_TXT = """★ Mᴀᴅᴇ Bʏ: moviestore
+★ Usᴇʀ Nᴀᴍᴇ: @MovieStore_TG
+★ Tʜᴀɴᴋs Tᴏ: Technical aks"""
 
     STATUS_TXT = """🗂 Total Files: <code>{}</code>
 👤 Total Users: <code>{}</code>

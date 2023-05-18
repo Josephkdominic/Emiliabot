@@ -185,11 +185,11 @@ async def advantage_spoll_choker(bot, query):
         await bot.send_message(LOG_CHANNEL, script.NO_RESULT_TXT.format(query.message.chat.title, query.message.chat.id, query.from_user.mention, search))
         k = await query.message.edit(f"👋 Hello {query.from_user.mention},\n\nI don't find <b>'{search}'</b> in my database. 😔")
         buttons = [[
-                InlineKeyboardButton("📢 Request Here", url='https://t.me/Moviestore_admin_bot')
-            ],[
-                InlineKeyboardButton("🔁 How To Get Movies 🔁", url='https://t.me/SgCxF90vs7dhOGQ1/11')
-            ]]
-            reply_markup = InlineKeyboardMarkup(buttons)
+            InlineKeyboardButton('👉 Request Here 👈', url='https://t.me/Moviestore_admin_bot')
+        ],[
+            InlineKeyboardButton('🔁 How To Get Movies 🔁', url='https://t.me/SgCxF90vs7dhOGQ1/11')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
         await asyncio.sleep(60)
         await k.delete()
         try:

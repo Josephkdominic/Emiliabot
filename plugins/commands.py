@@ -559,7 +559,7 @@ async def save_welcome(client, message):
     await message.reply_text(f"Successfully changed welcome for {title} to\n\n{welcome}")
     
     
-@Client.on_message(filters.command('delete') & filters.user(ADMINS))
+@Client.on_message(filters.command('deletef') & filters.user(ADMINS))
 async def delete(bot, message):
     msg = await message.reply_text('Fetching...')
     srt = await Media.count_documents({'mime_type': 'application/x-subrip'})
@@ -577,14 +577,14 @@ async def delete(bot, message):
     ]]
     await msg.edit('Choose do you want to delete file type?', reply_markup=InlineKeyboardMarkup(btn))
     
- @Client.on_message(filters.command('deletef') & filters.user(ADMINS))
-async def deletef(bot, message):
+@Client.on_message(filters.command('delete') & filters.user(ADMINS))
+async def delete(bot, message):
     """Delete file from database"""
     reply = message.reply_to_message
     if reply and reply.media:
         msg = await message.reply("Processing...⏳", quote=True)
     else:
-        await message.reply('Reply to file with /deletef which you want to delete', quote=True)
+        await message.reply('Reply to file with /delete which you want to delete', quote=True)
         return
 
     for file_type in ("document", "video", "audio"):
@@ -623,6 +623,7 @@ async def deletef(bot, message):
                 await msg.edit('File is successfully deleted from database')
             else:
                 await msg.edit('File not found in database')
+
 
 @Client.on_message(filters.command('delete_all') & filters.user(ADMINS))
 async def delete_all_index(bot, message):

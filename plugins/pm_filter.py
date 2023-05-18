@@ -183,7 +183,7 @@ async def advantage_spoll_choker(bot, query):
         await auto_filter(bot, query, k)
     else:
         await bot.send_message(LOG_CHANNEL, script.NO_RESULT_TXT.format(query.message.chat.title, query.message.chat.id, query.from_user.mention, search))
-        k = await query.message.edit(f"👋 Hello {query.from_user.mention},\n\nI don't find <b>'{search}'</b> in my database. 😔")        
+        k = await query.message.edit("Movie Not Found In Database,Request Admins To Add This Movie\n\n👉 Request @Moviestore_admin_bot")        
         await asyncio.sleep(60)
         await k.delete()
         try:
